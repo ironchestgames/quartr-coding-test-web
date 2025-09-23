@@ -14,10 +14,12 @@ type CompanyTitleProps = {
   country: string;
 };
 
-export const CompanyTitle = ({ name, ticker, country }: CompanyTitleProps) => (
+const CompanyTitle = ({ name, ticker, country }: CompanyTitleProps) => (
   <div style={{ display: "flex", alignItems: "flex-start" }}>
     <h3 style={{ color: "#010101", flex: 1 }}>
       {name} ({ticker}) {country && countryCodeToFlag(country)}
     </h3>
   </div>
 );
+
+export default CompanyTitle;

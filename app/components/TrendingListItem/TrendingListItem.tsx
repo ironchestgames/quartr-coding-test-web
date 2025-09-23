@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./TrendingListItem.module.css";
 
-import { CompanyInfo } from "../../types";
-import { CompanyLogo } from "./internals/CompanyLogo";
-import { CompanyTitle } from "./internals/CompanyTitle";
+import type { CompanyInfo } from "../../types";
+import CompanyLogo from "./internals/CompanyLogo";
+import CompanyTitle from "./internals/CompanyTitle";
 
 type TrendingListItemProps = {
   companyInfo: CompanyInfo;

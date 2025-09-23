@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PageTitle } from "./components/PageTitle/PageTitle";
-import { default as TrendingListItem } from "./components/TrendingListItem/TrendingListItem";
+import PageTitle from "./components/PageTitle/PageTitle";
+import TrendingListItem from "./components/TrendingListItem/TrendingListItem";
 
 export default function Home() {
   const [stuff1, setStuff1] = useState<any>([]); // TODO: rename

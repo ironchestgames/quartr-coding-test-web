@@ -5,6 +5,8 @@ type PageTitleProps = {
   children: React.ReactNode;
 };
 
-export const PageTitle = ({ children }: PageTitleProps) => (
+const PageTitle = ({ children }: PageTitleProps) => (
   <h2 className={styles.title}>{children}</h2>
 );
+
+export default PageTitle;

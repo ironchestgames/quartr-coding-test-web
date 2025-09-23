@@ -7,7 +7,7 @@ type CompanyLogoProps = {
   iconBackgroundColor: string | undefined;
 };
 
-export const CompanyLogo = ({
+const CompanyLogo = ({
   iconUrl,
   companyName,
   iconBackgroundColor,
@@ -21,3 +21,5 @@ export const CompanyLogo = ({
     />
   </div>
 );
+
+export default CompanyLogo;

@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { CompanyInfo } from "../../app/types";
+import type { CompanyInfo } from "../../app/types";
 
 type CompanyInfoResponse = {
   data: CompanyInfo[];

@@ -1,7 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import { CompanyInfo } from "../../app/types";
 
-const data = {
+type CompanyInfoResponse = {
+  data: CompanyInfo[];
+};
+
+const data: CompanyInfoResponse = {
   data: [
     {
       companyId: 1,

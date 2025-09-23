@@ -1,17 +1,16 @@
 "use client";
 
-import { Inter } from "@next/font/google";
 import { useEffect, useState } from "react";
-const inter = Inter({ subsets: ["latin"] });
+import { PageTitle } from "./components/PageTitle/PageTitle";
+import { default as TrendingListItem } from "./components/TrendingListItem/TrendingListItem";
 
 export default function Home() {
-  const [stuff1, setStuff1] = useState<any>([]);
+  const [stuff1, setStuff1] = useState<any>([]); // TODO: rename
   useEffect(() => {
     // declare the data fetching function
     const fetchData = async () => {
-      const data = await fetch("/api/companies");
+      const data = await fetch("/api/companies"); // TODO: use rtk query
       const data2 = await data.json();
-      console.log(data2);
       setStuff1(data2);
     };
 
@@ -23,9 +22,13 @@ export default function Home() {
 
   return (
     <main>
-      <h2 className={inter.className}>Quartr</h2>
-      <p className={inter.className}>Trending companies</p>
-      <p>{JSON.stringify(stuff1)}</p>
+      <PageTitle>Trending companies</PageTitle>
+      {stuff1.data &&
+        stuff1.data.map((company: any) => {
+          return (
+            <TrendingListItem key={company.companyId} companyInfo={company} />
+          );
+        })}
     </main>
   );
 }

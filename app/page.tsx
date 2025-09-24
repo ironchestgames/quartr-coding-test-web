@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import CompanyListItem from "./components/CompanyListItem/CompanyListItem";
 import PageTitle from "./components/PageTitle/PageTitle";
-import TrendingListItem from "./components/TrendingListItem/TrendingListItem";
 
 export default function Home() {
   const [stuff1, setStuff1] = useState<any>([]); // TODO: rename
@@ -24,12 +24,9 @@ export default function Home() {
     <main>
       <PageTitle>Trending companies</PageTitle>
       {stuff1.data && stuff1.data.length > 0 ? (
-        <section 
-          role="list" 
-          aria-label="List of trending companies"
-        >
+        <section role="list" aria-label="List of trending companies">
           {stuff1.data.map((company: any) => (
-            <TrendingListItem key={company.companyId} companyInfo={company} />
+            <CompanyListItem key={company.companyId} companyInfo={company} />
           ))}
         </section>
       ) : (

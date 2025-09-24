@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./TrendingListItem.module.css";
+import styles from "./CompanyListItem.module.css";
 
 import type { CompanyInfo } from "../../types";
 import { countryCodeToFlag } from "../../utils/countryCodeToFlag";
@@ -7,11 +7,11 @@ import Chevron from "../Chevron/Chevron";
 import CompanyLogo from "./internals/CompanyLogo";
 import CompanyTitle from "./internals/CompanyTitle";
 
-type TrendingListItemProps = {
+type CompanyListItemProps = {
   companyInfo: CompanyInfo;
 };
 
-const TrendingListItem = ({ companyInfo }: TrendingListItemProps) => (
+const CompanyListItem = ({ companyInfo }: CompanyListItemProps) => (
   <article
     className={styles.container}
     role="listitem"
@@ -23,7 +23,7 @@ const TrendingListItem = ({ companyInfo }: TrendingListItemProps) => (
       companyName={companyInfo.companyName}
       iconBackgroundColor={companyInfo.colorSettings.brandColor}
     />
-    <div className={styles.titleContainer}>
+    <div className={styles.textContainer}>
       <CompanyTitle
         name={companyInfo.companyName || companyInfo.displayName}
         ticker={companyInfo.companyTicker}
@@ -42,4 +42,4 @@ const TrendingListItem = ({ companyInfo }: TrendingListItemProps) => (
   </article>
 );
 
-export default TrendingListItem;
+export default CompanyListItem;

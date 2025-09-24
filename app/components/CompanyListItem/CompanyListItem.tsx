@@ -29,14 +29,7 @@ const CompanyListItem = ({ companyInfo }: CompanyListItemProps) => (
         ticker={companyInfo.companyTicker}
         country={companyInfo.companyCountry}
       />
-      <p
-        style={{
-          fontSize: 12,
-          color: "#999999",
-        }}
-      >
-        {companyInfo.description}
-      </p>
+      <p className={styles.description}>{companyInfo.description}</p>
     </div>
     <Chevron />
   </article>

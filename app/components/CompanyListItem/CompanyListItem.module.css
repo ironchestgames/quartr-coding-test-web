@@ -19,13 +19,16 @@
 }
 
 .textContainer {
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   flex: 1;
+  min-width: 0;
 }
 
 .description {
   font-size: 0.75rem;
-  color: #666666;
-  flex: 1;
+  color: #999999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -23,12 +23,20 @@ export default function Home() {
   return (
     <main>
       <PageTitle>Trending companies</PageTitle>
-      {stuff1.data &&
-        stuff1.data.map((company: any) => {
-          return (
+      {stuff1.data && stuff1.data.length > 0 ? (
+        <section 
+          role="list" 
+          aria-label="List of trending companies"
+        >
+          {stuff1.data.map((company: any) => (
             <TrendingListItem key={company.companyId} companyInfo={company} />
-          );
-        })}
+          ))}
+        </section>
+      ) : (
+        <div role="status" aria-live="polite">
+          {stuff1.data ? "No companies found" : "Loading companies..."}
+        </div>
+      )}
     </main>
   );
 }

@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./TrendingListItem.module.css";
 
 import type { CompanyInfo } from "../../types";
+import { countryCodeToFlag } from "../../utils/countryCodeToFlag";
+import Chevron from "../Chevron/Chevron";
 import CompanyLogo from "./internals/CompanyLogo";
 import CompanyTitle from "./internals/CompanyTitle";
 
@@ -10,7 +12,12 @@ type TrendingListItemProps = {
 };
 
 const TrendingListItem = ({ companyInfo }: TrendingListItemProps) => (
-  <div className={styles.container}>
+  <article
+    className={styles.container}
+    role="listitem"
+    tabIndex={0}
+    aria-label={`Company: ${companyInfo.companyName} (${companyInfo.companyTicker}) from ${countryCodeToFlag(companyInfo.companyCountry)}`}
+  >
     <CompanyLogo
       iconUrl={companyInfo.iconUrl || companyInfo.logoLightUrl}
       companyName={companyInfo.companyName}
@@ -22,11 +29,17 @@ const TrendingListItem = ({ companyInfo }: TrendingListItemProps) => (
         ticker={companyInfo.companyTicker}
         country={companyInfo.companyCountry}
       />
-      <p style={{ fontSize: 12, color: "#999999", flex: 1 }}>
+      <p
+        style={{
+          fontSize: 12,
+          color: "#999999",
+        }}
+      >
         {companyInfo.description}
       </p>
     </div>
-  </div>
+    <Chevron />
+  </article>
 );
 
 export default TrendingListItem;

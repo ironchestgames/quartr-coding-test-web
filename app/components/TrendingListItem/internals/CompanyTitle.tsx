@@ -1,12 +1,5 @@
 import React from "react";
-
-const countryCodeToFlag = (code: string): string => {
-  if (code.length !== 2) return code; // fallback if not 2 letters
-
-  return code
-    .toUpperCase()
-    .replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397));
-};
+import { countryCodeToFlag } from "../../../utils/countryCodeToFlag";
 
 type CompanyTitleProps = {
   name: string;
@@ -17,7 +10,11 @@ type CompanyTitleProps = {
 const CompanyTitle = ({ name, ticker, country }: CompanyTitleProps) => (
   <div style={{ display: "flex", alignItems: "flex-start" }}>
     <h3 style={{ color: "#010101", flex: 1 }}>
-      {name} ({ticker}) {country && countryCodeToFlag(country)}
+      <span>{name}</span>{" "}
+      <span aria-label={`Ticker symbol ${ticker}`}>({ticker})</span>{" "}
+      <span role="img" aria-label={`Country: ${countryCodeToFlag(country)}`}>
+        {countryCodeToFlag(country)}
+      </span>
     </h3>
   </div>
 );

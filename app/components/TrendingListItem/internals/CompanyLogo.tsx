@@ -18,6 +18,11 @@ const CompanyLogo = ({
       alt={`${companyName} logo`}
       className={styles.logoImage}
       style={{ backgroundColor: iconBackgroundColor || "#ffffff" }}
+      loading="lazy"
+      onError={(e) => {
+        // Fallback for broken images
+        e.currentTarget.style.display = "none";
+      }}
     />
   </div>
 );
